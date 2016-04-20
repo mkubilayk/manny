@@ -97,6 +97,8 @@ def depthFirstSearch(problem):
     while not fringe.isEmpty():
         state, path = fringe.pop()
 
+        visited.add(state)
+
         if problem.isGoalState(state):
             return path
 
@@ -106,8 +108,6 @@ def depthFirstSearch(problem):
             position, direction, cost = move
 
             if position not in visited:
-                visited.add(position)
-
                 newPath = path[:]
                 newPath.append(direction)
 
