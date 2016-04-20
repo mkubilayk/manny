@@ -161,6 +161,8 @@ def uniformCostSearch(problem):
     while not fringe.isEmpty():
         state, path, cost = fringe.pop()
 
+        visited.add(state)
+
         if problem.isGoalState(state):
             return path
 
@@ -170,8 +172,6 @@ def uniformCostSearch(problem):
             position, direction, stepCost = move
 
             if position not in visited:
-                visited.add(position)
-
                 newPath = path[:]
                 newPath.append(direction)
 
@@ -202,6 +202,8 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     while not fringe.isEmpty():
         state, path = fringe.pop()
 
+        visited.add(state)
+
         if problem.isGoalState(state):
             return path
 
@@ -211,8 +213,6 @@ def aStarSearch(problem, heuristic=nullHeuristic):
             position, direction, cost = move
 
             if position not in visited:
-                visited.add(position)
-
                 newPath = path[:]
                 newPath.append(direction)
 
